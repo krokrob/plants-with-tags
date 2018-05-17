@@ -11,6 +11,14 @@
             <h2><%= plant.name %></h2>
           </div>
           <%= link_to "+", plant_path(plant), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+          <div class="card-tags">
+            <% plant.tags.each do |tag| %>
+              <span><%= tag.name %></span>
+            <% end %>
+            <%= link_to new_plant_plant_tag_path(plant) do %>
+              <i class="fas fa-plus"></i>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
